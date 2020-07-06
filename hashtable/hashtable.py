@@ -22,9 +22,13 @@ class HashTable:
 
     def __init__(self, capacity):
         # Your code here
+        if capacity >= MIN_CAPACITY:
+            self.capacity = capacity
+            self.storage = [None] * self.capacity
+        else:
+            print(f"error: enter capacity {MIN_CAPACITY}")
+            self.capacity = MIN_CAPACITY
 
-        self.capacity = capacity
-        self.storage = [None] * self.capacity
 
     def get_num_slots(self):
         """
@@ -94,6 +98,19 @@ class HashTable:
         # Your code here
         target = self.hash_index(key)
         item = self.storage[target]
+        if not item:
+            self.storage[target] = HashTableEntry(key,value)
+        else:
+            prev_enter = None
+            while item:
+                if item.key == key:
+                    item.value= value
+                    return
+                prev_enter = item
+                item = item.next
+
+            item = HashTableEntry(key,value)
+            prev_enter.next = item
 
     def delete(self, key):
         """
