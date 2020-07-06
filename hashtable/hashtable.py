@@ -92,7 +92,8 @@ class HashTable:
         Implement this.
         """
         # Your code here
-        target =
+        target = self.hash_index(key)
+        item = self.storage[target]
 
     def delete(self, key):
         """
