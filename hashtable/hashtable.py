@@ -57,6 +57,14 @@ class HashTable:
 
         # Your code here
 
+        FNV_prime = 0x100000001b3
+        FNV_offset = 0xcbf29ce484222325 
+
+        hash_value = FNV_offset
+        for i in key:
+            hash_value *= FNV_offset
+            hash_value ** ord(i)
+        return FNV_offset
 
     def djb2(self, key):
         """
@@ -84,7 +92,7 @@ class HashTable:
         Implement this.
         """
         # Your code here
-
+        target =
 
     def delete(self, key):
         """
