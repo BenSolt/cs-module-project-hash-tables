@@ -4,7 +4,7 @@ cache = {}
 def expensive_seq(x, y, z):
     # Your code here
 
-    letters = (y,z)
+    letters = (x,y,z)
 
     if x <= 0:
         return y + z
