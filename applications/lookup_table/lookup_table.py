@@ -1,5 +1,5 @@
 # Your code here
-
+import random, math
 
 def slowfun_too_slow(x, y):
     v = math.pow(x, y)
@@ -16,7 +16,12 @@ def slowfun(x, y):
     """
     # Your code here
 
+    # cache={}
+    # key = (x,y)
 
+    # if cache.get(key):
+    #     return cache[key]
+  
 
 # Do not modify below this line!
 
