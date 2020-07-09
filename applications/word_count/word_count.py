@@ -4,7 +4,8 @@ def word_count(s):
     word_counter = {}
 
     for w in s:
-        w = w.lower()
+       # w = w.lower()
+        w = w.strip('":;,.-+=/|[]}{()*^&')
         if w in word_counter:
             # for each consecutive letter add + 1
             word_counter[w] += 1
