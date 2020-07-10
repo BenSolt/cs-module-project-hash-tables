@@ -1,12 +1,13 @@
-# Your code here
 
-# PLAN
+#import string
+
+#FAMILY/RELATIVES
+
+with open("./applications/crack_caesar/bealecipherfamily.txt") as family:
+    family = family.read()
 
 
-with open("./applications/histo/robin.txt") as robin:
-    robin = robin.read()
-
-def histo(s):
+def cipher(s):
     if len(s) < 1:
         return {}
     else:
@@ -15,8 +16,8 @@ def histo(s):
     s = " ".join(s.split()).lower().split(" ")
     
     for word in s:
-        #remove said objects
-        word = word.strip('":;,.-+=/|[]}{()*^&')
+        
+        word = word.strip(',[,]')
            
         if word_counter.get(f"{word}"):
             word_counter[word] += 1
@@ -28,11 +29,9 @@ def histo(s):
 
     words.sort(key=(lambda e: (-e[-1], e[0])))
     for word, a in words:
-        word = word + " " * (15-len(word)) + "#" * a
+        word = word + " " * (35-len(word)) + "#" * a
         print(word)
 
 if __name__ == "__main__":
-    print(histo(""))
-    print(histo(f"{robin}"))
-
-
+    print(cipher(""))
+    print(cipher(f"{family}"))

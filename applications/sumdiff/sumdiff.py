@@ -18,4 +18,4 @@ def f(x):
             if i != j:  
                 diffs.append(abs(x-y)) 
               
-    #return int(sum(diffs)/2) 
+    return int(sum(diffs)/2) 

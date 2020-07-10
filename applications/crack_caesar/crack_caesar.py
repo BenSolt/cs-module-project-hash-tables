@@ -8,8 +8,8 @@ import string
 with open("./applications/crack_caesar/ciphertext.txt") as coder:
     coder = coder.read()
 
-#encode_char = set(string.ascii_uppercase)
-encode_char = coder.upper()
+encode_char = set(string.ascii_uppercase)
+#encode_char = coder.upper()
 freq = {}
 letter_count = 0
 
