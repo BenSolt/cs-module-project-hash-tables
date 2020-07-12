@@ -2,76 +2,65 @@ ciphertext = open("./applications/book_cipher/book.txt", "r")
 code = open("./applications/book_cipher/code.txt", "r")
 
 
-ciphertext2 = open("./applications/book_cipher/textfile.txt", "r")
-code2 = open("./applications/book_cipher/code2.txt", "r")
+plain_text = open("./applications/book_cipher/textfile.txt", "r")
+code2 = open("./applications/book_cipher/codelotr.txt", "r")
 
 
 import string
 
-#Open the cipher text and find the appropriate line
-
-# for line in code:
-    
-#     linecode = line.split()[0] + ":" + line.split()[1]
-#     wordcode = line.split()[2]
-
-#     for line in ciphertext:
-#         if linecode in line:
-#             print(line.split()[int(wordcode)])
-        
-# code.close()
-# ciphertext.close()
-
-letter_count = 0
+line_count = 0
 word_count = 0
+book = []
+cipher_text = ""
+
+
+for line in plain_text: # ciphertext2 = textfile.txt
+
+    words = line.split()
+    textline_index = line.split()[0]
+    textword_index = line.split()[2]
+
+    book.append(words)
+
+        # index_10 = word.split()[5] + ":" + word.split()[9]
+
+    # print("\033[1;34mEntire length of text line:\033[0m", words) # <-- entire length of line
+    # print("\033[1;35mLine Index:\033[0m", textline_index) # <-- first index, 0
+    # print("\033[1;32mWord Index:\033[0m", textword_index)
+
 
 for line in code2: # code 2 = code2.txt
     
     linecode = line.split()[0] + ":" + line.split()[1]
-    wordcode = line.split()[1] 
-
-    print("line:word",linecode)  
-    # print('word:', wordcode)  
     
+    # print("line:word",linecode) 
+    
+    code_num = line.split()
+    line_index = int(line.split()[0]) - 1
+    word_index = int(line.split()[1]) - 1
+    code_word = book[line_index][word_index]
 
-    for line in ciphertext2: # ciphertext2 = textfile.txt
-        letter_count += 1
-
+    #cipher_text += (" " + code_word)
+    
+    if word_count == 0:
         
-        # print("int:",line.split()[int(wordcode)])
-        #print(line.split()[int(linecode)])
+        cipher_text += (code_word)
+    else: 
+        cipher_text += (" " + code_word)
 
-        # if letter_count == 6:
-        #     print(f"LINE {letter_count}: " +"WORD 10:", line.split()[9]) #9
-        # elif letter_count == 8:
-        #     print(f"LINE {letter_count}: " + "WORD 2:", line.split()[1])    
-        # elif letter_count == 3:
-        #     print(f"LINE {letter_count}: " + "WORD 4:", line.split()[3])     
-        # elif letter_count == 4:
-        #     print(f"LINE {letter_count}: " + "WORD 4:", line.split()[3])  
-          
-        # CODE TEXT
-        #6:10 8:2 4:4 3:4
+    word_count += 1
 
-        # DECODED
-        #find the Dark Men    
 
-        # print(f"line {letter_count}:",line.split()[0] +" " + line.split()[1])
 
-        if linecode in line:
-            
-            print(line.split()[int(wordcode)])
-            
-            # print(line.split()) #<-- prints each word in ' '
-            # print([int(wordcode)]) # <-- prints the index
-        
+    # print("\033[1;34mEntire length of text line:\033[0m", code_num)
+    # print("\033[1;35mLine Index:\033[0m", line_index)
+    # print("\033[1;32mWord Index:\033[0m", word_index)
+
+    # print("\033[1;34mEntire length of text line:\033[0m", words) # <-- entire length of line
+    # print("\033[1;35mCode word:\033[0m", code_word) # <-- first index, 0
+
+print("\n" + cipher_text)
+
+ 
 code2.close()
-ciphertext2.close()
-
-
-    # if linecode in line:
-        #     letter_count += 1
-        #     if line in freq:
-        #         freq[line] += 1
-        #     else:
-        #         freq[line] = 1
+plain_text.close()
